@@ -1,13 +1,18 @@
 #!/bin/sh
 
 here=$(pwd)
-dest="$here/Clean.app"
+appName="Markdown2PDF"
+dest="$here"/"$appName".app
+dest=/Applications/Scripts/"$appName".app
 rm -Rf $dest
 
-# Test mode: displays a window and keeps running
-# /usr/local/bin/platypus -a Clean -c clean.sh -o 'Text Window' -i clean.icns -p /bin/sh -V 1.0 -u "Jean-Olivier Irisson" -D -R -T 'fold' $dest
+# debug options
+# -o "Text Window" -R \
+# build options
+# -o "Progress Bar" \
 
-# Production mode: progress bar only which quits after the command is completed
-/usr/local/bin/platypus -a Clean -c clean.sh -o 'Progress Bar' -i clean.icns -p /bin/sh -V 1.0 -u "Jean-Olivier Irisson" -D -T 'fold' $dest
+/usr/local/bin/platypus -a "$appName" -c markdown2pdf.sh \
+   -o "Progress Bar" \
+   -p /bin/sh -V 1.0 -u "Jean-Olivier Irisson" -D -X "md|markdown|txt|text|mdown" -f MultiMarkdown -f style.css -f wkpdf $dest
 
 exit 0

@@ -1,0 +1,6 @@
+[submodule "MultiMarkdown"]
+	path = MultiMarkdown
+	url = git://github.com/fletcher/MultiMarkdown
+[submodule "wkpdf"]
+	path = wkpdf
+	url = git://github.com/plessl/wkpdf.git
