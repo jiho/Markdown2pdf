@@ -6,10 +6,15 @@
 #	GNU General Public License http://www.gnu.org/copyleft/gpl.html
 #
 
-# Prepare a temporary directory where the work will be done
-tmpDir=$(mktemp -d /tmp/md2pdf.XXX)
-echo $tmpDir
+# Use a safe prefix to create temp files in the same directory
+# We need to keep everything in the same directory of links to work
+tmpPrefix=$$
+# wkpdf requires path without space as output, hence create a temp dir
+tmpDir="/tmp/tempPrefix-md2pdf"
+mkdir $tmpDir
 
+# Resources dir inside the app
+# Contains MultiMarkdown and wkpdf
 rscDir=$(dirname $0)
 echo "$rscDir"
 
@@ -17,20 +22,36 @@ echo "$rscDir"
 while [ "$1" != "" ]; do
    echo "--> Processing $1"
 
-   # Create output file name
+   # Split the file name
    fileExtension=$(echo "$1" | awk -F "." '{print $NF}')
    dirName=$(dirname "$1")
    fileName=$(basename -s .$fileExtension "$1")
-   outFile="$dirName"/"$fileName".pdf
+
+   # Prepare temporary names
+   mdFile="${dirName}/${tmpPrefix}-${fileName}.md"
+   cssFile="${dirName}/${tmpPrefix}-${fileName}.css"
+   htmlFile="${dirName}/${tmpPrefix}-${fileName}.html"
+   htmlAddress=$(echo "file://$htmlFile" |sed 's/\ /%20/g')
+
+   # Prepare output PDF file name
+   tmpPdfFile="${tmpDir}/pdf.pdf"
+   pdfFile="${dirName}/${fileName}.pdf"
+
    echo "Names"
    echo "  dir=$dirName"
    echo "  file=$fileName"
    echo "  ext=$fileExtension"
-   echo "  out=$outFile"
+   echo ""
+   echo "  md=$mdFile"
+   echo "  css=$cssFile"
+   echo "  html=$htmlFile"
+   echo "  html=$htmlAddress"
+   echo "  pdf=$tmpPdfFile"
+   echo "  pdf=$pdfFile"
+   echo ""
 
-
-   # Copy the file to the temp dir to work on it
-   cp "$1" $tmpDir/input.md
+   # Copy the MarkDown file to a temporary file to work on it
+   cp "$1" "$mdFile"
 
    # Add css info to the Markdown file if there isn't one already
    echo "CSS detection"
@@ -41,23 +62,26 @@ while [ "$1" != "" ]; do
       # copy the css file to the temp directory
       css=$(echo $css | awk -F ": " '{print $NF}')
       echo "    css=$css"
-      cp "$dirName"/"$css" $tmpDir
    else
       echo "  the file does not have css. Prepending:"
       # prepend css info to the markdown file
-      cat $tmpDir/input.md | pbcopy && echo "css: style.css" > $tmpDir/input.md && pbpaste >> $tmpDir/input.md
-      head -n 3 $tmpDir/input.md
+      cat "$mdFile" | pbcopy && echo "css: ${tmpPrefix}-${fileName}.css" > "$mdFile" && pbpaste >> "$mdFile"
+      head -n 3 "$mdFile"
       # copy css file in the resources dir
-      cp "$rscDir"/style.css $tmpDir
+      cp "$rscDir"/style.css "$cssFile"
    fi
 
    # Convert to HTML using MultiMarkdown
    echo "Conversion"
-   "$rscDir"/MultiMarkdown/bin/mmd2XHTML.pl < $tmpDir/input.md > $tmpDir/output.html
+   "$rscDir"/MultiMarkdown/bin/mmd2XHTML.pl < "$mdFile" > "$htmlFile"
 
    # Print HTML into a PDF file
-   "$rscDir"/wkpdf/bin/wkpdf --source $tmpDir/output.html --output $tmpDir/output.pdf --format A4 --print-background yes
-   cp $tmpDir/output.pdf "$outFile"
+   echo "$htmlFile"
+   "$rscDir"/wkpdf/bin/wkpdf --source "$htmlAddress" --output "$tmpPdfFile" --format A4 --print-background yes
+   cp -f "$tmpPdfFile" "$pdfFile"
+
+   # Cleanup
+   rm -f "$mdFile" "$cssFile" "$htmlFile" "$tmpPdfFile"
 
    echo ""
 	shift 1
