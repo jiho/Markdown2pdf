@@ -5,11 +5,12 @@
 #	(c) Jean-Olivier Irisson <irisson@normalesup.org>.
 #	GNU General Public License http://www.gnu.org/copyleft/gpl.html
 #
+#------------------------------------------------------------
 
 # Use a safe prefix to create temp files in the same directory
-# We need to keep everything in the same directory of links to work
+# We need to keep everything in the same directory for links to work
 tmpPrefix=$$
-# wkpdf requires path without space as output, hence create a temp dir
+# wkpdf requires a path without spaces as output, hence create a temp dir
 tmpDir="/tmp/tempPrefix-md2pdf"
 mkdir $tmpDir
 
@@ -18,7 +19,7 @@ mkdir $tmpDir
 rscDir=$(dirname $0)
 echo "$rscDir"
 
-# Process one file at a time
+# Process one droped file at a time
 while [ "$1" != "" ]; do
    echo "--> Processing $1"
 
