@@ -1,9 +1,9 @@
 #!/bin/sh
 #
-#	Creates a PDF from a (multi) markdown file using a specific style sheet if none is provided
+#	  Creates a PDF from a (multi) markdown file using a predefined style sheet if none is provided
 #
-#	(c) Jean-Olivier Irisson <irisson@normalesup.org>.
-#	GNU General Public License http://www.gnu.org/copyleft/gpl.html
+# (c) Copyright 2011 JiHO
+#     GNU General Public License v3
 #
 #------------------------------------------------------------
 
@@ -85,7 +85,7 @@ while [ "$1" != "" ]; do
    rm -f "$mdFile" "$cssFile" "$htmlFile" "$tmpPdfFile"
 
    echo ""
-	shift 1
+   shift 1
 done
 
 echo "Done"
