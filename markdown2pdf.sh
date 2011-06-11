@@ -7,6 +7,10 @@
 #
 #------------------------------------------------------------
 
+# Default paper size
+paper="a4"
+# paper="letter"
+
 # Use a safe prefix to create temp files in the same directory
 # We need to keep everything in the same directory for links to work
 tmpPrefix=$$
@@ -78,7 +82,7 @@ while [ "$1" != "" ]; do
 
    # Print HTML into a PDF file
    echo "$htmlFile"
-   "$rscDir"/wkpdf/bin/wkpdf --source "$htmlAddress" --output "$tmpPdfFile" --paper a4 --print-background
+   "$rscDir"/wkpdf/bin/wkpdf --source "$htmlAddress" --output "$tmpPdfFile" --paper "$paper" --print-background
    cp -f "$tmpPdfFile" "$pdfFile"
 
    # Cleanup

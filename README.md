@@ -14,6 +14,8 @@ Get the code
 	git submodule init
 	git submodule update
 
+If you live in a country not using A4 as the default paper size, open `markdown2pdf.sh` and change the default (to letter for example). It is set in the first lines of the script.
+
 Install [platypus](http://www.sveinbjorn.org/platypus "Platypus | Sveinbjorn Thordarson").
 
 Open Platypus' preferences and install the command line tool.
