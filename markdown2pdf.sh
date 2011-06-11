@@ -78,7 +78,7 @@ while [ "$1" != "" ]; do
 
    # Print HTML into a PDF file
    echo "$htmlFile"
-   "$rscDir"/wkpdf/bin/wkpdf --source "$htmlAddress" --output "$tmpPdfFile" --format A4 --print-background yes
+   "$rscDir"/wkpdf/bin/wkpdf --source "$htmlAddress" --output "$tmpPdfFile" --paper a4 --print-background
    cp -f "$tmpPdfFile" "$pdfFile"
 
    # Cleanup
