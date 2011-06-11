@@ -2,8 +2,8 @@
 
 here=$(pwd)
 appName="Markdown2PDF"
-dest="$here"/"$appName".app
-dest=/Applications/Scripts/"$appName".app
+# dest="$here"/"$appName".app
+dest=~/Desktop/"$appName".app
 rm -Rf $dest
 
 # debug options
