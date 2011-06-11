@@ -11,7 +11,7 @@
 # We need to keep everything in the same directory for links to work
 tmpPrefix=$$
 # wkpdf requires a path without spaces as output, hence create a temp dir
-tmpDir="/tmp/tempPrefix-md2pdf"
+tmpDir="/tmp/${tmpPrefix}-md2pdf"
 mkdir $tmpDir
 
 # Resources dir inside the app
