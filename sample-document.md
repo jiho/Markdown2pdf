@@ -1,4 +1,3 @@
-css: style.css
 
 # H1 Title, main title
 

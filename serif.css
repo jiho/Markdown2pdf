@@ -1,0 +1,220 @@
+/* reset */
+
+* {
+	padding: 0px;
+	margin: 0px;
+}
+
+body {
+	/* left margin to force indent of almost everything */
+	margin: 0px 1cm 0px 1.8cm;
+	background-color: #fff;
+	color: #000px;
+	font: 10pt Palatino, Garamond, Georgia, serif;
+}
+
+/* links */
+a:link {
+	color: #5e5e5e;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #5e5e5e;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #000px;
+	text-decoration: underline;
+}
+	
+a:active {
+	color: #000px;
+	text-decoration: underline;
+}
+
+
+/* structure */
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Myriad Pro", "Lucida Grande", Verdana, sans-serif;
+	font-weight: bold;
+	margin: 12px 0px 8px -30px;
+	
+}
+
+h1	{
+	/* Document title */
+	font-size: 2.5em;
+	vertical-align: 0px;
+}
+h2	{
+	/* Part title */
+	font-size: 1.6em;
+	border-bottom: 1px solid #919191;
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+h3	{
+	/* Section */
+	font-size: 1.4em;
+}
+h4	{
+	/* Sub-section */
+	font-size: 1.2em;
+}
+h5	{
+	/* Sub-Sub-section */
+	font-size: 1em;
+}
+
+h6	{
+	/* Paragraph */
+	font-size: 1em;
+	font-style: italic;
+}
+
+p {
+	margin: 8px 0px 0px 0px;
+}
+
+/* lists */
+
+ul	{
+	margin: 8px 0px;
+	margin-left: 30px;
+	list-style-type: square;
+	list-style-position: outside;
+}
+
+ul ul {
+}
+
+    
+ol {
+	margin: 8px 0px;
+	margin-left: 30px;
+	list-style-type: decimal;
+	list-style-position: outside;
+}
+	
+ol ol {
+	list-style-type: lower-alpha;
+    list-style-position: inside;
+}
+
+dl {
+	margin: 8px 0px;	
+}
+
+li	{
+	margin: 4px 0px 0px 0px;
+}
+
+dt {
+	margin: 8px 0px 0px 0px;
+}
+
+dd {
+	margin-top: 0px;
+	margin-left: 20px;
+}
+
+dd p,
+dd ul,
+dd ol,
+li ol,
+li ul {
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+/* table */
+
+table {
+	margin: 8px 0px;
+	border-top: 1px solid #919191;
+	border-left: 1px solid #919191;
+	border-spacing: 0px;
+}
+
+table th,
+table td {
+	padding: 6px
+}
+	
+table th {
+	background: #eaeaea;
+	border-bottom: 1px solid #919191;
+	border-right: 1px solid #919191;
+	font-weight: bold;
+}
+	
+table td {
+	vertical-align: top;
+	border-bottom: 1px solid #919191;
+	border-right: 1px solid #919191;
+}
+
+table td p {
+}
+
+table td p + p  {
+}
+
+/* images */
+
+img {
+	margin: 8px 0px 8px -30px;
+}
+
+
+/* code */
+
+pre, code {
+	font-size: 11px;
+	font-family: Menlo, consolas, courier, monospace;
+}
+
+pre {
+	border: 1px solid #919191;
+	background: #eaeaea;
+	padding: 6px;
+	text-align: left;
+	margin: 8px 0px;
+}
+
+hr {
+	width: 100%;
+	border:  0px;
+	border-top: 1px solid #919191;
+	margin: 8px 0px;
+}
+
+
+/* forms */
+
+/*form {
+	margin: 0px;
+}
+
+button {
+	margin: 3px 0px 10px 0px;
+}
+input {
+	vertical-align: middle;
+	padding: 0px;
+	margin: 0px 0px 5px 0px;
+}
+
+select {
+	vertical-align: middle;
+	padding: 0px;
+	margin: 0px 0px 3px 0px;
+}
+
+textarea {
+	margin: 0px 0px 10px 0px;
+	width: 100%;
+}*/

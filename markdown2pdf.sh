@@ -1,6 +1,7 @@
 #!/bin/sh
 #
-#	  Creates a PDF from a (multi) markdown file using a predefined style sheet if none is provided
+#     Creates a PDF from a (multi) markdown file using
+#     predefined style sheets if none is provided
 #
 # (c) Copyright 2011 JiHO
 #     GNU General Public License v3
@@ -63,18 +64,44 @@ while [ "$1" != "" ]; do
    echo "CSS detection"
    css=$(grep -e "^css:" "$1")
 
-   if [[ $? -eq 0 ]]; then
-      echo "  the file already has css"
-      # copy the css file to the temp directory
-      css=$(echo $css | awk -F ": " '{print $NF}')
-      echo "    css=$css"
-   else
-      echo "  the file does not have css. Prepending:"
+   if [[ $css = "" ]]; then
+      echo "  The file does not specify a CSS stylesheet"
+      echo "  Prepending the default CSS style"
       # prepend css info to the markdown file
       cat "$mdFile" | pbcopy && echo "css: ${tmpPrefix}-${fileName}.css" > "$mdFile" && pbpaste >> "$mdFile"
-      head -n 3 "$mdFile"
-      # copy css file in the resources dir
-      cp "$rscDir"/style.css "$cssFile"
+      # show it
+      cssSpec=$(head -n 1 "$mdFile")
+      echo "    $cssSpec"
+      # copy default css file from the resources dir
+      cp "${rscDir}/adc.css" "$cssFile"
+
+   else
+      echo "  The file specifies a CSS stylesheet"
+      echo "    $css"
+      cssName=$(echo "$css" | awk -F ": " '{print $NF}')
+      # echo $cssName
+      if [[ -e "${dirName}/${cssName}" ]]; then
+         # if the file exists (the user created it) then use this
+         echo "  Using user-provided definition"
+      else
+         # if the file does not exist, try to match it against the ones provided with the app
+         # when it matches, copy the one from the app bundle to the temporary css name and modify the md file to point to it
+         # when it does not, we don't know what to do
+         case $cssName in
+            adc.css | serif.css)
+               # copy the css file to the temporary one
+               cp "${rscDir}/${cssName}" "$cssFile"
+               # change the css specification to point to it
+               cssSpec="${tmpPrefix}-${fileName}.css"
+               sed -i "" -e s/${cssName}/${cssSpec}/ "$mdFile"
+               ;;
+            * )
+               echo "Unknown stylesheet" 1>&2
+               rm -f "$mdFile" "$cssFile" "$htmlFile" "$tmpPdfFile"
+               exit 1
+         esac
+
+      fi
    fi
 
    # Convert to HTML using MultiMarkdown
