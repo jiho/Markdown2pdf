@@ -15,22 +15,6 @@ a:link {
 	text-decoration: none;
 }
 
-a:visited {
-	color: #00a;
-	text-decoration: none;
-}
-
-a:hover {
-	color: #f60;
-	text-decoration: underline;
-}
-	
-a:active {
-	color: #f60;
-	text-decoration: underline;
-}
-
-
 /* html tags */
 
 /*  Work around IE/Win code size bug - courtesy Jesper, waffle.wootest.net  */
