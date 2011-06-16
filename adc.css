@@ -17,9 +17,9 @@ a:link {
 
 /* html tags */
 
-/*  Work around IE/Win code size bug - courtesy Jesper, waffle.wootest.net  */
+/*	Work around IE/Win code size bug - courtesy Jesper, waffle.wootest.net	*/
 
-* html code	{
+* html code {
 	font-size: 101%;
 }
 
@@ -90,7 +90,7 @@ h4	{
 h5	{
 	margin-top: 20px;
 	margin-bottom: .5em;
-    padding: 0;
+	padding: 0;
 	font-size: 13px;
 	color: #000;
 }
@@ -98,14 +98,14 @@ h5	{
 h6	{
 	margin-top: 20px;
 	margin-bottom: .5em;
-    padding: 0;
+	padding: 0;
 	font-size: 11px;
 	color: #000;
 }
 
 p {
-    margin-top: 0px;
-    margin-bottom: 10px;
+	margin-top: 0px;
+	margin-bottom: 10px;
 	orphans: 2;
 	widows: 2;
 }
@@ -121,20 +121,20 @@ ul	{
 li	{
 	margin-top: 7px;
 }
-	        
+
 ol {
 	list-style-type: decimal;
 	list-style-position: outside;
 	margin: 0 0 0 30px;
 	padding: 0 0 12px 6px;
 }
-	
+
 ol ol {
 	list-style-type: lower-alpha;
-    list-style-position: outside;
+	list-style-position: outside;
 	margin: 7px 0 0 30px;
 	padding: 0 0 0 10px;
-    }
+	}
 
 ul ul {
 	margin-left: 40px;
@@ -154,7 +154,7 @@ table {
 	border-spacing: 0;
 	page-break-inside: avoid;
 }
-	
+
 table th {
 	padding: 4px 8px 4px 8px;
 	background: #E2E2E2;
@@ -164,9 +164,9 @@ table th {
 }
 table th p {
 	font-weight: bold;
-	margin-bottom: 0px; 
+	margin-bottom: 0px;
 }
-	
+
 table td {
 	padding: 8px;
 	font-size: 12px;
@@ -175,13 +175,13 @@ table td {
 	border-right: 1px solid #919699;
 }
 table td p {
-	margin-bottom: 0px; 
+	margin-bottom: 0px;
 }
-table td p + p  {
-	margin-top: 5px; 
+table td p + p	{
+	margin-top: 5px;
 }
 table td p + p + p {
-	margin-top: 5px; 
+	margin-top: 5px;
 }
 
 /* forms */
