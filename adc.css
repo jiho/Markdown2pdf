@@ -1,8 +1,9 @@
 /* Extracted and interpreted from adcstyle.css and frameset_styles.css */
 
+
 /* body */
 body {
-	margin: 20px 40px;
+	margin: 0;
 	background-color: #fff;
 	color: #000;
 	font: 13px "Myriad Pro", "Lucida Grande", Lucida, Verdana, sans-serif;

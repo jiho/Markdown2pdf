@@ -109,7 +109,8 @@ while [ "$1" != "" ]; do
    "$rscDir"/MultiMarkdown/bin/mmd2XHTML.pl < "$mdFile" > "$htmlFile"
 
    # Print HTML into a PDF file
-   "$rscDir"/wkpdf/bin/wkpdf --source "$htmlAddress" --output "$tmpPdfFile" --paper "$paper" --print-background
+   # margins are in points, 1 cm = 28.3 points
+   "$rscDir"/wkpdf/bin/wkpdf --source "$htmlAddress" --output "$tmpPdfFile" --paper "$paper" --print-background yes --margins 70 70 70 113 --vcenter false
    cp -f "$tmpPdfFile" "$pdfFile"
 
    # Cleanup
