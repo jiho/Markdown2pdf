@@ -20,8 +20,9 @@ mkdir $tmpDir
 
 # Resources dir inside the app
 # Contains MultiMarkdown and wkpdf
-rscDir=$(dirname $0)
-echo "$rscDir"
+rscDir=$(cd ${0%/*} && echo $PWD)
+# NB: this gets the absolute path, unlike dirname which gets the relative path
+# echo "$rscDir"
 
 # Process one dropped file at a time
 while [ "$1" != "" ]; do
@@ -30,6 +31,7 @@ while [ "$1" != "" ]; do
    # Split the file name
    fileExtension=$(echo "$1" | awk -F "." '{print $NF}')
    dirName=$(dirname "$1")
+   dirName=$(cd "$dirName" && echo $PWD)    # absolute path
    fileName=$(basename -s .$fileExtension "$1")
 
    # Prepare temporary names
