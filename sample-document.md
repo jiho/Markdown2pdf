@@ -50,7 +50,7 @@ A sentence with some `code` words in it and a code block
         echo bar
     end do
 
-And some **bold** and *italicised* words. A url [www.google.com](www.google.com) and another [link](www.google.com) and this is their logo:
+And some **bold** and *italicised* words. A url [www.google.com](http://www.google.com) and another [link](http://www.google.com) and this is their logo:
 
 ![Google](http://www.google.com/intl/en_com/images/srpr/logo1w.png)
 
