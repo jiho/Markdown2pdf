@@ -45,17 +45,16 @@ while [ "$1" != "" ]; do
    pdfFile="${dirName}/${fileName}.pdf"
 
    echo "Names"
-   echo "  dir=$dirName"
-   echo "  file=$fileName"
-   echo "  ext=$fileExtension"
+   echo "  dir      = $dirName"
+   echo "  file     = $fileName"
+   echo "  ext      = $fileExtension"
    echo ""
-   echo "  md=$mdFile"
-   echo "  css=$cssFile"
-   echo "  html=$htmlFile"
-   echo "  html=$htmlAddress"
-   echo "  pdf=$tmpPdfFile"
-   echo "  pdf=$pdfFile"
-   echo ""
+   echo "  md       = $mdFile"
+   echo "  css      = $cssFile"
+   echo "  html     = $htmlFile"
+   echo "  html     = $htmlAddress"
+   echo "  temp pdf = $tmpPdfFile"
+   echo "  pdf      = $pdfFile"
 
    # Copy the MarkDown file to a temporary file to work on it
    cp "$1" "$mdFile"
@@ -83,7 +82,6 @@ while [ "$1" != "" ]; do
    "$rscDir"/MultiMarkdown/bin/mmd2XHTML.pl < "$mdFile" > "$htmlFile"
 
    # Print HTML into a PDF file
-   echo "$htmlFile"
    "$rscDir"/wkpdf/bin/wkpdf --source "$htmlAddress" --output "$tmpPdfFile" --paper "$paper" --print-background
    cp -f "$tmpPdfFile" "$pdfFile"
 
