@@ -45,9 +45,10 @@ pre {
 
 hr {
 	color: #919699;
-	size: 1;
+	background-color: #919699;
+	height: 1px;
+	border: 0;
 	width: 100%;
-	noshade: "noshade"
 }
 
 /* headers */
