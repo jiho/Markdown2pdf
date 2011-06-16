@@ -23,7 +23,7 @@ mkdir $tmpDir
 rscDir=$(dirname $0)
 echo "$rscDir"
 
-# Process one droped file at a time
+# Process one dropped file at a time
 while [ "$1" != "" ]; do
    echo "--> Processing $1"
 
