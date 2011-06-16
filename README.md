@@ -1,9 +1,9 @@
 
 # Convert Markdown documents to PDF
 
-The script (`markdown2pdf.sh`) calls [Multimarkdown](http://fletcherpenney.net/multimarkdown/ "MultiMarkdown") to convert from Markdown to HTML. Then the HTML is rendered into a PDF through webkit by [wkpdf](http://plessl.github.com/wkpdf/ "wkpdf &mdash; a command line HTML to PDF converter for Mac OS X"). It uses a default CSS which resembles the one used on Apple Developer Documentation, but if a css style is specified in Markdown, the script honors it instead.
+The script (`markdown2pdf.sh`) calls [Multimarkdown](http://fletcherpenney.net/multimarkdown/ "MultiMarkdown") to convert from Markdown to HTML. Then the HTML is rendered into a PDF through webkit by [wkpdf](http://plessl.github.com/wkpdf/ "wkpdf &mdash; a command line HTML to PDF converter for Mac OS X"). It uses a default CSS which resembles the one used on Apple Developer Documentation, but if a css style is specified in the document using the multimarkdown syntax, the script honors it instead.
 
-The script is packaged into a droppable application thanks to [platypus](http://www.sveinbjorn.org/platypus "Platypus | Sveinbjorn Thordarson").
+The script is packaged into a droppable application with [platypus](http://www.sveinbjorn.org/platypus "Platypus | Sveinbjorn Thordarson").
 
 ## Installation
 
@@ -20,11 +20,13 @@ Install [platypus](http://www.sveinbjorn.org/platypus "Platypus | Sveinbjorn Tho
 
 Open Platypus' preferences and install the command line tool.
 
-Create the app (on your desktop)
+Create the app (which will be put on your desktop)
 
 	./createApp.sh
 
-Move the app wherever yo want. I recommend then adding it to your Finder's title bar for easy drag and drop access.
+Move the app wherever you want.
+
+Finally, I recommend adding it to your Finder's title bar for easy drag and drop access.
 
 ## Update
 
@@ -36,7 +38,7 @@ Move the app wherever yo want. I recommend then adding it to your Finder's title
 
 ## Usage
 
-Just drag and drop documents with extension `md`, `markdown`, `txt`, `text`, `mdown` on the application. The resulting PDF should appear next to the markdown document.
+Just drag and drop documents with extension `md`, `markdown`, `txt`, `text`, or `mdown` on the application. The resulting PDF should appear next to the markdown document.
 
 Beware, if a PDF exists already, it will be silently overwritten
 
