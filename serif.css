@@ -65,9 +65,9 @@ h4 {
 /* @group Typography */
 
 body {
-	font: 13px "Adobe Caslon", "Palatino";
+	font: 12px "Adobe Caslon", "Palatino";
 /*	text-align: justify;*/
-	line-height: 130%;
+	line-height: 140%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -84,7 +84,7 @@ h5 {font-size: 13px; line-height: 110%;}
 h6 {font-size: 13px; line-height: 110%;}
 
 pre, code {
-	font-size: 12px;
+	font-size: 11px;
 	font-family: "Consolas", monaco, "DejaVu Sans Mono";
 	font-weight: normal;
 }
@@ -95,7 +95,7 @@ pre, code {
 /* @group Spacing */
 
 body {
-	margin: 20px 40px 20px 120px;
+	margin: 0px 0px 0px 60px;
 }
 
 /* same vertical space between all 1st rank elements */
