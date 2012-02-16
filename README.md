@@ -20,6 +20,11 @@ Install [platypus](http://www.sveinbjorn.org/platypus "Platypus | Sveinbjorn Tho
 
 Open Platypus' preferences and install the command line tool.
 
+Install wkpdf dependencies
+
+    sudo gem install jeweler
+    sudo gem install trollop
+
 Create the app (which will be put on your desktop)
 
 	./createApp.sh
