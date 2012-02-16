@@ -1,220 +1,282 @@
-/* reset */
+/*
+ * (c) Copyright 2012 Jean-Olivier Irisson
+ *     GNU General Public License v3
+ *
+ */
 
-* {
-	padding: 0px;
+
+/* @group Defaults */
+
+/* Reset CSS */
+/* http://meyerweb.com/eric/tools/css/reset/ */
+/* v1.0 | 20080212 */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
 	margin: 0px;
+	padding: 0px;
 }
 
 body {
-	/* left margin to force indent of almost everything */
-	margin: 0px 1cm 0px 1.8cm;
-	background-color: #fff;
-	color: #000px;
-	font: 10pt Palatino, Garamond, Georgia, serif;
+    counter-reset: section;
+}
+h2:before {
+    content: counter(section);
+    counter-increment: section;
+	float: left;
+	width: 40px;
+	text-align: left;
+}
+h2 {
+    counter-reset: subsection;
+	text-indent: -40px;
+}
+h3:before {
+    content: counter(section) "." counter(subsection);
+    counter-increment: subsection;
+	float: left;
+	width: 40px;
+	text-align: left;
+}
+h3 {
+    counter-reset: subsubsection;
+	text-indent: -40px;
+}
+h4:before {
+    content: counter(section) "." counter(subsection)"." counter(subsubsection);
+    counter-increment: subsubsection;
+	float: left;
+	width: 40px;
+	text-align: left;
+}
+h4 {
+	text-indent: -40px;
 }
 
-/* links */
-a:link {
-	color: #5e5e5e;
-	text-decoration: none;
-}
-
-a:visited {
-	color: #5e5e5e;
-	text-decoration: none;
-}
-
-a:hover {
-	color: #000px;
-	text-decoration: underline;
-}
-	
-a:active {
-	color: #000px;
-	text-decoration: underline;
-}
+/* @end */
 
 
-/* structure */
+/* @group Typography */
+
+body {
+	font: 13px "Adobe Caslon", "Palatino";
+/*	text-align: justify;*/
+	line-height: 130%;
+}
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Myriad Pro", "Lucida Grande", Verdana, sans-serif;
+	font-family: "Myriad Pro", "Lucida Grande", Lucida, Verdana, sans-serif;
 	font-weight: bold;
-	margin: 12px 0px 8px -30px;
-	
+	text-align: left;
 }
 
-h1	{
-	/* Document title */
-	font-size: 2.5em;
-	vertical-align: 0px;
-}
-h2	{
-	/* Part title */
-	font-size: 1.6em;
-	border-bottom: 1px solid #919191;
-	margin-top: 15px;
-	margin-bottom: 10px;
-}
-h3	{
-	/* Section */
-	font-size: 1.4em;
-}
-h4	{
-	/* Sub-section */
-	font-size: 1.2em;
-}
-h5	{
-	/* Sub-Sub-section */
-	font-size: 1em;
+h1 {font-size: 30px; line-height: 110%;}
+h2 {font-size: 25px; line-height: 110%;}
+h3 {font-size: 17px; line-height: 110%;}
+h4 {font-size: 15px; line-height: 110%;}
+h5 {font-size: 13px; line-height: 110%;}
+h6 {font-size: 13px; line-height: 110%;}
+
+pre, code {
+	font-size: 12px;
+	font-family: "Consolas", monaco, "DejaVu Sans Mono";
+	font-weight: normal;
 }
 
-h6	{
-	/* Paragraph */
-	font-size: 1em;
-	font-style: italic;
+/* @end */
+
+
+/* @group Spacing */
+
+body {
+	margin: 20px 40px 20px 120px;
 }
 
-p {
-	margin: 8px 0px 0px 0px;
+/* same vertical space between all 1st rank elements */
+p,
+pre,
+table,
+ul, ol, dl,
+h1, h2, h3, h4, h5, h6,
+hr {
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+/* additional spacing for titles */
+h1	{ margin-top: 30px; }
+h2	{ margin-top: 40px; }
+h3	{ margin-top: 30px; }
+h4	{ margin-top: 30px; }
+h5	{ margin-top: 30px; }
+h6	{ margin-top: 20px; }
+/* but not when two titles directly follow each other */
+h2+h3, h3+h4, h4+h5, h5+h6,
+h3+h6, h4+h6 {
+	margin-top: 0;
+}
+
+/* hanging titles */
+/*h2, h3, h4, h5 {
+	margin-left: -50px;
+}
+*/
+/* indentation of lists */
+ul, ol {
+	margin-left: 30px;
+}
+dd {
+	margin-left: 16px;
+/*	margin-left: 30px;*/
+}
+
+/* vertical space within a list:
+   	- between list items
+	- between paragrahs inside a list item
+	- between nested lists
+	- between "definitions" within a definition list (several dd elements)
+*/
+li,
+li>p,
+ul ul, ol ol, ul ol, ol ul,
+dd,
+dd+dd {
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+/* inside a definition in a definition list, elements such as list, paragraphs, tables etc. induce a smaller vertical space compared to a general paragraph. The vertical space is the one between two dd elements*/
+dd>ul, dd>ol, dd>dl,
+dd>p,
+dd>table, dd>pre, dd>blockquote {
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+/* terms of a definition list are spaced as new paragraphs */
+dt {
+	margin-top: 7px;
+}
+
+/* reduce a bit the space between:
+   	- the beginning of the definition and the definition term
+	- an h6 (paragraph title) and the content of the paragraph
+*/
+/* 2px instead of 5px */
+/*dd { margin-top: 2px; }*/
+
+/* 5px instead of 10px */
+/*h6 { margin-bottom: 0px; }
+h6+p { margin-top: 5px; }*/
+
+/* space within a code block */
+pre {
+	padding: 5px 10px;
+}
+
+/* indentation of quotes */
+blockquote {
+	margin-left: 30px;
+	margin-right: 30px;
+}
+
+/* @end */
+
+
+/* @group Elements style */
+
+/*h2 {
+	padding-bottom: 2px;
+	border-bottom: 1px solid #999;
+}
+*/
+a:link {
+	color: #00f;
+	text-decoration: none;
+}
+
+pre {
+	border: 1px solid #999;
+	background: #E8E8E8;
+	text-align: left;
+}
+
+hr {
+	/*
+		TODO Find a way to remove the 3D effect
+	*/
+	size: 0px;
+	width: 50%;
+	color: #999;
+	border-bottom: 1px solid #999;
 }
 
 /* lists */
-
 ul	{
-	margin: 8px 0px;
-	margin-left: 30px;
-	list-style-type: square;
-	list-style-position: outside;
+	list-style: square outside;
 }
 
-ul ul {
-}
-
-    
 ol {
-	margin: 8px 0px;
-	margin-left: 30px;
 	list-style-type: decimal;
 	list-style-position: outside;
 }
-	
+
 ol ol {
 	list-style-type: lower-alpha;
-    list-style-position: inside;
-}
-
-dl {
-	margin: 8px 0px;	
-}
-
-li	{
-	margin: 4px 0px 0px 0px;
 }
 
 dt {
-	margin: 8px 0px 0px 0px;
+	font-weight: bold;
 }
 
-dd {
-	margin-top: 0px;
-	margin-left: 20px;
-}
-
-dd p,
-dd ul,
-dd ol,
-li ol,
-li ul {
-	margin-top: 4px;
-	margin-bottom: 4px;
+blockquote {
+	font-style: italic;
 }
 
 /* table */
 
 table {
-	margin: 8px 0px;
-	border-top: 1px solid #919191;
-	border-left: 1px solid #919191;
-	border-spacing: 0px;
+	border-spacing: 0;
+	border-top: 2px solid #999;
+	border-bottom: 2px solid #999;
 }
 
-table th,
-table td {
-	padding: 6px
-}
-	
 table th {
-	background: #eaeaea;
-	border-bottom: 1px solid #919191;
-	border-right: 1px solid #919191;
 	font-weight: bold;
+	padding: 5px 8px;
+	background: #E8E8E8;
+	border-bottom: 1px solid #999;
 }
-	
+
 table td {
+	padding: 5px 8px;
 	vertical-align: top;
-	border-bottom: 1px solid #919191;
-	border-right: 1px solid #919191;
 }
 
+/* paragraphs within a table*/
+/*table th p {
+	font-weight: bold;
+	margin-top: 0px;
+	margin-bottom: 5px;
+}
 table td p {
+	margin-top: 0px;
+	margin-bottom: 5px;
 }
-
 table td p + p  {
+	margin-top: 0px;
+	margin-bottom: 5px;
 }
-
-/* images */
-
-img {
-	margin: 8px 0px 8px -30px;
+table td p + p + p {
+	margin-top: 0px;
+	margin-bottom: 5px;
 }
+*/
 
-
-/* code */
-
-pre, code {
-	font-size: 11px;
-	font-family: Menlo, consolas, courier, monospace;
-}
-
-pre {
-	border: 1px solid #919191;
-	background: #eaeaea;
-	padding: 6px;
-	text-align: left;
-	margin: 8px 0px;
-}
-
-hr {
-	width: 100%;
-	border:  0px;
-	border-top: 1px solid #919191;
-	margin: 8px 0px;
-}
-
-
-/* forms */
-
-/*form {
-	margin: 0px;
-}
-
-button {
-	margin: 3px 0px 10px 0px;
-}
-input {
-	vertical-align: middle;
-	padding: 0px;
-	margin: 0px 0px 5px 0px;
-}
-
-select {
-	vertical-align: middle;
-	padding: 0px;
-	margin: 0px 0px 3px 0px;
-}
-
-textarea {
-	margin: 0px 0px 10px 0px;
-	width: 100%;
-}*/
+/* @end */
