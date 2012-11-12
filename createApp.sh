@@ -18,8 +18,8 @@ rm -Rf $dest
 # build options
 # -o "Progress Bar" \
 
-/usr/local/bin/platypus -a "$appName" -c markdown2pdf.sh \
+/usr/local/bin/platypus -a "$appName" \
    -B \
-   -p /bin/sh -V 1.0 -u "JiHO" -D -X "md|markdown|txt|text|mdown" -f MultiMarkdown -f adc.css -f serif.css -f wkpdf $dest
+   -p /bin/sh -V 1.0 -u "JiHO" -D -X "md|markdown|txt|text|mdown" -f MultiMarkdown -f adc.css -f serif.css -f wkpdf markdown2pdf.sh $dest
 
 exit 0
