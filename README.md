@@ -51,5 +51,5 @@ Beware, if a PDF exists already, it will be silently overwritten
 
 --
 
-(c) Copyright 2011 JiHO
+(c) Copyright 2011-2014 JiHO
     GNU General Public License v3

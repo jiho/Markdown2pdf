@@ -2,7 +2,7 @@
 #
 #     Create an app bundle with Platypus
 #
-# (c) Copyright 2011 JiHO
+# (c) Copyright 2011-2014 JiHO
 #     GNU General Public License v3
 #
 #------------------------------------------------------------
