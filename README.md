@@ -1,6 +1,8 @@
 
 # Convert Markdown documents to PDF
 
+**Update 2014-01-07: wkpdf breaks under Mavericks. It is an essential part of this script/app and Markdown2PDF therefore does not work anymore. I am not able to fix it. Consider alternatives such as [Marked](http://markedapp.com/ "Marked - smart tools for smart writers")**
+
 The script (`markdown2pdf.sh`) calls [Multimarkdown](http://fletcherpenney.net/multimarkdown/ "MultiMarkdown") to convert from Markdown to HTML. Then the HTML is rendered into a PDF through webkit by [wkpdf](http://plessl.github.com/wkpdf/ "wkpdf &mdash; a command line HTML to PDF converter for Mac OS X"). It uses a default CSS which resembles the one used on Apple Developer Documentation, but if a css style is specified in the document using the multimarkdown syntax, the script honors it instead.
 
 The script is packaged into a droppable application with [platypus](http://www.sveinbjorn.org/platypus "Platypus | Sveinbjorn Thordarson").
