@@ -73,7 +73,7 @@ while [ "$1" != "" ]; do
       cssSpec=$(head -n 1 "$mdFile")
       echo "    $cssSpec"
       # copy default css file from the resources dir
-      cp "${rscDir}/adc.css" "$cssFile"
+      cp "${rscDir}/serif.css" "$cssFile"
 
    else
       echo "  The file specifies a CSS stylesheet"
