@@ -3,7 +3,7 @@
 #     Creates a PDF from a (multi) markdown file using
 #     predefined style sheets if none is provided
 #
-# (c) Copyright 2011 JiHO
+# (c) Copyright 2011-2014 JiHO
 #     GNU General Public License v3
 #
 #------------------------------------------------------------
@@ -73,7 +73,7 @@ while [ "$1" != "" ]; do
       cssSpec=$(head -n 1 "$mdFile")
       echo "    $cssSpec"
       # copy default css file from the resources dir
-      cp "${rscDir}/serif.css" "$cssFile"
+      cp "${rscDir}/document.css" "$cssFile"
 
    else
       echo "  The file specifies a CSS stylesheet"

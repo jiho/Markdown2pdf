@@ -1,5 +1,7 @@
 /* 
- * (c) Copyright 2012 Jean-Olivier Irisson
+ *     CSS style meant for long-form documents
+ *
+ * (c) Copyright 2012-2013 Jean-Olivier Irisson
  *     GNU General Public License v3
  *
  */
@@ -65,14 +67,21 @@ h4 {
 /* @group Typography */
 
 body {
-	font: 12px "Adobe Caslon", "Palatino";
+	font: 14px "Chaparral Pro"; /* 13px = 10pt */
 /*	text-align: justify;*/
 	line-height: 140%;
 }
 
+p {
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	hyphens: auto;
+	text-align: justify;
+}
+
 h1, h2, h3, h4, h5, h6 {
-	font-family: "Myriad Pro", "Lucida Grande", Lucida, Verdana, sans-serif;
-	font-weight: bold;
+	font-family: "Myriad Pro";
+    font-weight: 600;
 	text-align: left;
 }
 
@@ -84,8 +93,8 @@ h5 {font-size: 13px; line-height: 110%;}
 h6 {font-size: 13px; line-height: 110%;}
 
 pre, code {
-	font-size: 12px;
-	font-family: "Consolas", monaco, "DejaVu Sans Mono";
+	font-size: 13px;
+    font-family: "Inconsolata", "Consolas", monaco, "DejaVu Sans Mono";
 	font-weight: normal;
 }
 
@@ -95,7 +104,9 @@ pre, code {
 /* @group Spacing */
 
 body {
-	margin: 20px 40px 20px 120px;
+	margin: 20px auto 40px auto;
+    padding: 0px 40px 0 80px;
+    max-width: 600px;
 }
 
 /* same vertical space between all 1st rank elements */
@@ -205,6 +216,7 @@ pre {
 	border: 1px solid #999;
 	background: #E8E8E8;
 	text-align: left;
+    white-space: pre-wrap;
 }
 
 hr {
@@ -278,5 +290,16 @@ table td p + p + p {
 	margin-bottom: 5px;
 }
 */
+
+/* @end */
+
+
+/* @group Print */
+
+@page {
+  @bottom-right {
+    content: counter(page) " of " counter(pages);
+  }
+}
 
 /* @end */
