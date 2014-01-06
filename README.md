@@ -25,6 +25,8 @@ Install wkpdf dependencies
     sudo gem install jeweler
     sudo gem install trollop
 
+and [RubyCocoa](http://rubycocoa.sourceforge.net/ "File: RubyCocoa - A Ruby/Objective-C Bridge").
+
 Create the app (which will be put on your desktop)
 
 	./createApp.sh
